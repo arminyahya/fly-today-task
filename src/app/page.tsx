@@ -48,7 +48,7 @@ export default function BoxList() {
           onMouseUp={handleMouseUp}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
-          className={"overflow-x-scroll space-x-4 p-4 whitespace-nowrap bg-white rounded-lg shadow-md custom-scrollbar " + (isDragging ? 'cursor-grabbing' : 'cursor-grab')}
+          className={"flex items-center overflow-x-scroll space-x-4 p-4 whitespace-nowrap bg-white rounded-lg shadow-md custom-scrollbar " + (isDragging ? 'cursor-grabbing' : 'cursor-grab')}
         >
           {boxes.map((box, index) => (
             <Box key={index} item={box} isActive={activeBoxIndex === index} />
