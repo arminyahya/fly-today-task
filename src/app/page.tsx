@@ -15,20 +15,9 @@ export default function BoxList() {
     const container = containerRef.current as HTMLElement;
     const scrollLeft = container.scrollLeft;
     const scrollWidth = container.scrollWidth - container.clientWidth;
-
-    let index;
-    if (scrollLeft >= scrollWidth) {
-      index = boxes.length - 1;
-    } else {
-      const progress = scrollLeft / scrollWidth;
-      index = Math.floor(progress * boxes.length);
-    }
-
-    boxes.forEach((box, i) => {
-      if (i === index) {
-        setActiveBoxIndex(i)
-      }
-    });
+    const progress = scrollLeft / scrollWidth;
+    const index = Math.floor(progress * (boxes.length));
+    setActiveBoxIndex(index)
   }
 
   const { isDragging, handleMouseDown, handleMouseMove, handleMouseUp } = useScrollWithDragging(containerRef)
